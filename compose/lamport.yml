@@ -1,4 +1,3 @@
-version: "3.9"
 services:
   lamport-server:
     build:
@@ -8,6 +7,11 @@ services:
     command: ["python", "s_lamp.py"]
     volumes:
       - ../Sync:/app/Sync:rw
+    # tidak perlu ports kalau client juga di Docker
+    # kalau mau akses dari host langsung, baru tambahkan:
+    # ports:
+    #   - "12345:12345"
+
   lamport-client:
     build:
       context: ../
